@@ -1,98 +1,74 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends("layout.main")
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+@section("content")
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <!--                <div class="col-xs-12 col-sm-3" style="text-align:center">
+                                    <img src="pics/WA_Logo.png" width="50%">
+                                </div> -->
+                <div class="col-xs-12 col-sm-6" style="text-align:left">
+                    <h1><b><font color="darkorange">WordActivity</font></b></h1>
+                    <h2><b><font color="darkorange"><em>我的活动</em></font></b></h2>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
-    </body>
-</html>
+    </header>
+
+    <div class="container" id="hotActsBlock">
+        <div class="col-xs-12 col-sm-4 col-md-4" style="text-align:center;" >
+            <h3><b>大家都在关注这些活动🔥</b></h3>
+            <div class="hidden-xs" style="text-align:center; margin-top: 30px">
+                <button type="button" class="btn btn-primary">探索更多</button>
+            </div>
+        </div
+        >
+        <div class="col-xs-12 col-sm-4 col-md-4 hotActs" style="text-align:center;">
+            <h3><a href="#">Title1</a></h3>
+            <h3><a href="#">Title2</a></h3>
+            <h3><a href="#">Title3</a></h3>
+            <br>
+        </div>
+
+        <div class="hidden-xs col-sm-4 col-md-4 hotActs" style="text-align:center; ">
+            <h3><a href="#">Title4</a></h3>
+            <h3><a href="#">Title5</a></h3>
+            <h3><a href="#">Title6</a></h3>
+            <br>
+        </div>
+
+        <div  class="visible-xs" style="text-align:center;  vertical-align: middle;">
+            <button type="button" class="btn btn-primary">探索更多</button>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <div>
+            <h3><b>关于所有</b></h3>
+            <hr>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12  col-sm-3 col-md-3">
+                <h2 align=center><b>About this site</b></h2>
+                <h2 align=center><b>关于本站</b></h2>
+            </div>
+            <div class="col-xs-12  col-sm-9 col-md-9">
+                <p>的花费了多少返回拉萨的发货了 的实力空么南方的康拉德JFK的撒酒疯拉德克撒解放开绿灯撒法名为呢</p>
+                <p>大沙发附件和斯大林幅度萨芬还是德拉范老师点击返回，上的那lads尽快发你将来的萨芬你们，士大夫你九零士大夫你九零士大夫你就，的萨芬不都是比较安分骄傲而我和人家是大部分，但是不能的撒，方面难道是的首发式地方进口货物客人为人民，按时的奶粉 士大夫你，士大夫八点三，发表，时的那份不是电脑，安保费你说的，阿波菲斯电脑，安抚不能说的，啊把饭送到，部分史丹福波斯的那份吧</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <h2 align=center><b>Developer info</b></h2>
+                <h2 align=center><b>关于开发者</b></h2>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-9">
+                <p>的花费了多少返回拉萨的发货了 的实力空么南方的康拉德JFK的撒酒疯拉德克撒解放开绿灯撒法名为呢</p>
+                <p>大沙发附件和斯大林幅度萨芬还是德拉范老师点击返回，上的那lads尽快发你将来的萨芬你们，士大夫你九零士大夫你九零士大夫你就，的萨芬不都是比较安分骄傲而我和人家是大部分，但是不能的撒，方面难道是的首发式地方进口货物客人为人民，按时的奶粉 士大夫你，士大夫八点三，发表，时的那份不是电脑，安保费你说的，阿波菲斯电脑，安抚不能说的，啊把饭送到，部分史丹福波斯的那份吧，但是不能的撒，方面难道是的首发式地方进口货物客人为人民，按时的奶粉 士大夫你，士大夫八点三，发表，时的那份不是电脑，安保费你说的，阿波菲斯电脑，安抚不能说的，啊把饭送到，部分史丹福波斯的那份</p>
+            </div>
+        </div>
+    </div>
+@endsection
