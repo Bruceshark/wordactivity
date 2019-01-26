@@ -1,15 +1,22 @@
 @extends("layout.main")
+<style type="text/css">
+
+</style>
 
 @section("content")
-    <div>
+    <div class="container">
+        <div class="col-sm-8 blog-main">
+        @foreach($posts as $post)
             <div class="blog-post">
-                <h2 class="blog-post-title"><a href=# >ESAP</a></h2>
-                <p class="blog-post-meta"> 2019/11/06 by <a href="#">Bruce</a></p>
+                <h2 class="blog-post-title"><a href="/posts/{{$post->id}}" >{{$post->title}}</a></h2>
+                <p class="blog-post-meta"> {{$post->created_at->toFormattedDateString()}} 由 <a href="#">{{$post->user->name}}</a> 创建</p>
 
-                <p>dfdasfawefsdafasdfasdfasfdasf</p>
-                <p class="blog-post-meta">赞   | 评论 </p>
+                <p>{!! str_limit($post->content, 100, '...') !!}</p>
+                <p class="blog-post-meta">点评 99 条</p>
             </div>
+        @endforeach
 
+        <div style="text-align:center">{{$posts->links()}}</div>
     </div><!-- /.blog-main -->
     </div>
 @endsection

@@ -14,12 +14,9 @@
         .navbar a:hover {color:darkorange!important}
         .navbar a {transition: color 0.2s ease-in-out;}
         body { padding-top: 50px}
-        a {
-            color:black;
-        }
         a:link {
             text-decoration: none;
-            color:black;
+            color:dimgray;
         }
         a:visited {
             text-decoration: none;
@@ -33,8 +30,18 @@
             text-decoration: none;
             color: black;
         }
-        .hotActs a{
-            text-decoration: underline;
+
+        .blog-post-title a:hover {
+            text-decoration: underline!important;
+            color:darkorange;
+        }
+        .blog-post-title a:link {
+            text-decoration: none;
+            color:darkorange;
+        }
+        .blog-post-title a:visited {
+            text-decoration: none;
+            color:darkorange;
         }
         .btn-primary {
             background-color:darkorange;
@@ -54,22 +61,20 @@
 <body>
 @include("layout.nav")
 
-<div class="container">
-
     <div class="blog-header">
     </div>
 
     <div class="row">
         @yield("content")
 
-    </div>    </div><!-- /.row -->
-</div><!-- /.container -->
+    </div><!-- /.row -->
+<!-- /.container -->
 
 @include("layout.footer")
 
 <!-- Include all frames, plugins, and functions in javascript -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script> //Reference: https://www.cnblogs.com/Wudj/p/9108649.html
     $(window).scroll(function () {
         //小屏幕下的导航条折叠

@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><b>WordActivity.com</b></a>
+            <a class="navbar-brand" href="/"><b>WA</b></a>
         </div>
         <!-- 导航条上的各个选项 -->
         <div id="navbar" class="navbar-collapse collapse">

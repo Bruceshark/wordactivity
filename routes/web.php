@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\PostController@welcome');
 Route::get('/posts', '\App\Http\Controllers\PostController@index');
+Route::get('/posts/{post}', '\App\Http\Controllers\PostController@show');
 
 
