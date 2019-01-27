@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">
     <style type="text/css">
         html, body {width:100%;height:100%;}
         .navbar{background:rgba(255,255,255,0.3)!important;}
@@ -75,6 +77,8 @@
 <!-- Include all frames, plugins, and functions in javascript -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/wangEditor.min.js"></script>
+<script src="/js/ylaravel.js"></script>
 <script> //Reference: https://www.cnblogs.com/Wudj/p/9108649.html
     $(window).scroll(function () {
         //小屏幕下的导航条折叠

@@ -1,8 +1,4 @@
 @extends("layout.main")
-<style type="text/css">
-
-</style>
-
 @section("content")
     <div class="container">
         <div class="col-sm-8 blog-main">
@@ -11,7 +7,7 @@
                 <h2 class="blog-post-title"><a href="/posts/{{$post->id}}" >{{$post->title}}</a></h2>
                 <p class="blog-post-meta"> {{$post->created_at->toFormattedDateString()}} 由 <a href="#">{{$post->user->name}}</a> 创建</p>
 
-                <p>{!! str_limit($post->content, 100, '...') !!}</p>
+                <p>{!! str_limit($post->content, 20, '...') !!}</p>
                 <p class="blog-post-meta">点评 99 条</p>
             </div>
         @endforeach
