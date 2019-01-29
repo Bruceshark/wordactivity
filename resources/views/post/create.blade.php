@@ -10,7 +10,7 @@
             <input name="title" type="text" class="form-control" placeholder="这里是标题">
         </div>
         <div class="form-group">
-            <label>内容</label>
+            <label>活动简介</label>
             <textarea id="content"  style="height:400px;max-height:500px;" name="content" class="form-control" placeholder="这里是内容"></textarea>
         </div>
         @include('layout.error')

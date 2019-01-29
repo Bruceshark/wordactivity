@@ -41,9 +41,8 @@ class PostController extends Controller
         ]);
 
         // 逻辑
-//        $user_id = \Auth::id();
-//        $params = array_merge(request(['title', 'content']), compact('user_id'));
-        $params = array_merge(request(['title', 'content']));
+        $user_id = \Auth::id();
+        $params = array_merge(request(['title', 'content']), compact('user_id'));
 
         $post = Post::create($params);
 
@@ -73,7 +72,7 @@ class PostController extends Controller
             'content' => 'required|string|min:5',
         ]);
 
-//        $this->authorize('update', $post);
+        $this->authorize('update', $post);
 
         // 逻辑
         $post->title = request('title');
@@ -87,7 +86,7 @@ class PostController extends Controller
     // 删除逻辑
     public function delete(Post $post)
     {
-//        $this->authorize('delete', $post);
+        $this->authorize('delete', $post);
 
         $post->delete();
 

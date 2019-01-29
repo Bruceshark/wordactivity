@@ -87,12 +87,14 @@ return [
     */
     'attributes'           => [
         'username' => '用户名',
+        'name' => '用户名',
         'account'  => '账号',
         'captcha'  => '验证码',
         'mobile'   => '手机号',
         'password' => '密码',
         'content'  => '内容',
         'title'  => '标题',
+        'email'  => '邮箱',
         'identity' => '手机号/用户名',
     ],
 ];
