@@ -13,6 +13,22 @@ if (editor.config){
         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
     };
 
+    // 普通的自定义菜单
+    editor.config.menus = [
+        'img',
+        '|',     // '|' 是菜单组的分割线
+        'bold',
+        'underline',
+        'italic',
+        'strikethrough',
+        'eraser',
+        'forecolor',
+        'bgcolor',
+        '|',
+        'undo',
+        'redo',
+    ];
+
     editor.create();
 }
 

@@ -6,9 +6,8 @@
             <div class="blog-post">
                 <h2 class="blog-post-title"><a href="/posts/{{$post->id}}" >{{$post->title}}</a></h2>
                 <p class="blog-post-meta"> {{$post->created_at->toFormattedDateString()}} 由 <a href="#">{{$post->user->name}}</a> 创建</p>
-
-                <p>{!! str_limit($post->content, 20, '...') !!}</p>
-                <p class="blog-post-meta">点评 99 条</p>
+                <p>{!!str_limit(strip_tags($post->content),10,'...')!!}</p>
+                <p class="blog-post-meta">点评 {{$post->comments_count}} 条</p>
             </div>
         @endforeach
 
