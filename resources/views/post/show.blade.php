@@ -37,21 +37,24 @@
                 <ul class="list-group">
                     @foreach($comments as $comment)
                         <li class="list-group-item">
-                            <h5>{{$comment->created_at}} by {{$comment->user->name}}</h5>
+                            <h5>在 {{$comment->created_at}} <b>{{$comment->user->name}}</b> 说：</h5>
                             <div>
                                 <p>{!! $comment->content !!}</p>
-                                <div>
+                                <hr>
+                                <div><p>
                                     @if ($comment->like(\Auth::id())->exists())
-                                        <a href="/posts/{{$comment->id}}/unlike" type="button" class="btn btn-default btn-lg">取消赞</a>
+                                        <a href="/posts/{{$comment->id}}/unlike">
+                                            👎取消赞
+                                        </a>
                                     @else
-                                        <a href="/posts/{{$comment->id}}/like" type="button" class="btn btn-primary btn-lg">赞</a>
+                                        <a href="/posts/{{$comment->id}}/like">
+                                            👍给个赞
+                                        </a>
                                     @endif
-                                </div>
-                                <div>
                                     @if ($comment->likes_count == 0)
-                                        <p>还没有人赞过这条点评</p>
+                                        | <span style="color:gray">还没有人赞过这条点评</span></p>
                                     @else
-                                        <p>{{$comment->likes_count}}人赞了这条点评</p>
+                                        | <span style="color:gray">{{$comment->likes_count}}人👍了这条点评</span></p>
                                     @endif
                                 </div>
                             </div>
