@@ -40,6 +40,11 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete');
     // 提交评论
     Route::post('/posts/{post}/comment', '\App\Http\Controllers\PostController@comment');
+
+    // 赞
+    Route::get('/posts/{comment}/like', '\App\Http\Controllers\PostController@like');
+    // 取消赞
+    Route::get('/posts/{comment}/unlike', '\App\Http\Controllers\PostController@unlike');
 });
 
 

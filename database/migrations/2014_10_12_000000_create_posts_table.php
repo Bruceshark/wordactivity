@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 100)->default("");
             $table->text('content');
             $table->integer('user_id')->default(0);
+            $table->integer('comment_count')->default(0);
             $table->timestamps();
         });
     }

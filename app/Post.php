@@ -14,6 +14,6 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment')->orderBy('created_at', 'desc'); //一对多
+        return $this->hasMany('App\Comment')->orderBy('like_count', 'desc'); //一对多
     }
 }

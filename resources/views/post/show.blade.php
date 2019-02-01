@@ -35,11 +35,25 @@
             <h3><b>点评</b></h3>
                 <!-- List group -->
                 <ul class="list-group">
-                    @foreach($post->comments as $comment)
+                    @foreach($comments as $comment)
                         <li class="list-group-item">
                             <h5>{{$comment->created_at}} by {{$comment->user->name}}</h5>
                             <div>
                                 <p>{!! $comment->content !!}</p>
+                                <div>
+                                    @if ($comment->like(\Auth::id())->exists())
+                                        <a href="/posts/{{$comment->id}}/unlike" type="button" class="btn btn-default btn-lg">取消赞</a>
+                                    @else
+                                        <a href="/posts/{{$comment->id}}/like" type="button" class="btn btn-primary btn-lg">赞</a>
+                                    @endif
+                                </div>
+                                <div>
+                                    @if ($comment->likes_count == 0)
+                                        <p>还没有人赞过这条点评</p>
+                                    @else
+                                        <p>{{$comment->likes_count}}人赞了这条点评</p>
+                                    @endif
+                                </div>
                             </div>
                         </li>
                     @endforeach

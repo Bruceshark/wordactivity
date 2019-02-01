@@ -5,24 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Post;
 use \App\Comment;
+use \App\Like;
 
 class PostController extends Controller
 {
     //首页的文章选
     public function welcome(){
-        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+        $posts = Post::orderBy('comment_count', 'desc')->paginate(3);
         return view("welcome", compact('posts'));
     }
     //文章概览
     public function index(){
-        $posts = Post::orderBy('created_at', 'desc')->withCount("comments")->paginate(6);
+        $posts = Post::orderBy('comment_count', 'desc')->withCount("comments")->paginate(6);
         return view("post/index", compact('posts'));
     }
     //详情页
     public function show(Post $post)
     {
 //        $post->load('comments');
-        return view("post/show", compact('post'));
+        $comments = $post->comments()->withCount("likes")->paginate(6);
+        return view("post/show", compact('post', 'comments'));
     }
     //写新文章
     public function create()
@@ -42,7 +44,6 @@ class PostController extends Controller
         // 逻辑
         $user_id = \Auth::id();
         $params = array_merge(request(['title', 'content']), compact('user_id'));
-
         $post = Post::create($params);
 
         // 渲染
@@ -104,8 +105,33 @@ class PostController extends Controller
         $comment->user_id = \Auth::id();
         $comment->content = request('content');
         $post->comments()->save($comment);
+        $post->comment_count++;
+        $post->save();
 
         // 渲染
+        return back();
+    }
+
+    //点赞
+    public function like(Comment $comment)
+    {
+        $param = [
+            'user_id' => \Auth::id(),
+            'comment_id' => $comment->id,
+        ];
+
+        Like::firstOrCreate($param);
+        $comment->like_count ++;
+        $comment->save();
+        return back();
+    }
+
+    // 取消赞
+    public function unlike(Comment $comment)
+    {
+        $comment->like(\Auth::id())->delete();
+        $comment->like_count --;
+        $comment->save();
         return back();
     }
 

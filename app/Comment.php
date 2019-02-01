@@ -18,4 +18,16 @@ class Comment extends Model
     {
         return $this->belongsTo('App\User'); //反向一对多
     }
+
+    // 和用户进行关联
+    public function like($user_id)
+    {
+        return $this->hasOne(\App\Like::class)->where('user_id', $user_id);
+    }
+
+    // 文章的所有赞
+    public function likes()
+    {
+        return $this->hasMany(\App\Like::class);
+    }
 }
