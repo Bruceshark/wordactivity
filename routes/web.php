@@ -45,6 +45,11 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/posts/{comment}/like', '\App\Http\Controllers\PostController@like');
     // 取消赞
     Route::get('/posts/{comment}/unlike', '\App\Http\Controllers\PostController@unlike');
+    
+    // 个人中心
+    Route::get('/user/{user}', '\App\Http\Controllers\UserController@show');
+
+
 });
 
 

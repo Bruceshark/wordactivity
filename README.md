@@ -14,11 +14,8 @@ wordactivity.com is a project based on Laravel. Wordactivity allows students to 
 
 #### 1/30/2019 todo
 
-1. start learning comment function
+1. start learning comment function [done]
 
-
-
-
-
-
-
+#### 2/21/2019 todo (long time no see. Lunar new year was terrific)
+1. delete the follow function because I think it's useless and complicated [done]
+2. start the user page, including two major tabs: posts(activities), and comments
